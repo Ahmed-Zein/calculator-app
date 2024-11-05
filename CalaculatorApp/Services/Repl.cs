@@ -13,11 +13,10 @@ public class Repl(Calculator calculator) : IRepl
             Console.Write(">> ");
             var line = Console.ReadLine()!.Trim();
             var ans = calculator.Eval(line);
-            if (!string.IsNullOrEmpty(ans))
-            {
-                _index++;
-                Console.WriteLine($"[{_index}] " + ans);
-            }
+            if (string.IsNullOrEmpty(ans)) continue;
+            
+            _index++;
+            Console.WriteLine($"[{_index}] " + ans);
         }
     }
 }
